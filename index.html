@@ -18,32 +18,34 @@
   </section>
 
   <!-- Pantalla 2: Duelo -->
-  <section class="screen" data-screen="duel">
-    <div class="screen__content screen__content--duel">
-      <p id="round-label" class="round-label"></p>
-      <p id="duel-prompt" class="duel-prompt"></p>
+  <section class="screen screen--duel" data-screen="duel">
+    <p id="round-label" class="duel-round"></p>
 
-      <div class="cards">
-        <button id="card-champion" class="card">
-          <span class="card__title"></span>
-        </button>
-        <span class="vs">VS</span>
-        <button id="card-challenger" class="card">
-          <span class="card__title"></span>
-        </button>
+    <div class="duel">
+      <button id="card-champion" class="duel-card">
+        <span class="duel-card__title"></span>
+      </button>
+
+      <div class="duel-vs">
+        <span class="duel-vs__circle">VS</span>
+        <span id="duel-prompt" class="duel-vs__hint"></span>
       </div>
+
+      <button id="card-challenger" class="duel-card">
+        <span class="duel-card__title"></span>
+      </button>
     </div>
   </section>
 
   <!-- Pantalla 3: Final -->
-  <section class="screen" data-screen="final">
+  <section class="screen screen--final" data-screen="final">
+    <div id="card-winner" class="duel-card duel-card--winner">
+      <span class="duel-card__title"></span>
+    </div>
+
     <div class="screen__content">
       <h1 id="final-title"></h1>
       <p id="final-body"></p>
-
-      <div id="card-winner" class="card card--winner">
-        <span class="card__title"></span>
-      </div>
 
       <div id="idea-field" class="idea-field">
         <label id="idea-label" for="idea-input"></label>

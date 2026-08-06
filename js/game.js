@@ -9,7 +9,8 @@ const TEXTS = {
     "Quiero regalarte algo y no me decido, así que necesito tu ayuda. " +
     "Van a aparecer dos regalos: elegí el que más te guste. Sin pensarlo mucho.",
   startButton: "Empezar",
-  duelPrompt: "¿Cuál te gusta más, Maite?",
+  duelPrompt: "Tocá la que más te guste",
+  quote: (title) => `“${title}”`,
   roundLabel: (current, total) => `Duelo ${current} de ${total}`,
   finalTitle: "Listo, Maite. Te quedaste con esto:",
   ideaLabel: "¿Se te ocurre algo que no puse?",
@@ -32,6 +33,12 @@ let history = []; // [{ round, winner, loser }]
 let ideaText = "";
 let sent = false;
 let sending = false;
+
+// Los url() dentro de variables CSS se resuelven relativos a la hoja de
+// estilos que los usa, no al HTML. Por eso convertimos la ruta a absoluta acá.
+function bgUrl(path) {
+  return `url("${new URL(path, document.baseURI).href}")`;
+}
 
 function shuffle(array) {
   const copy = array.slice();
@@ -105,20 +112,20 @@ function renderDuel() {
   );
 
   const champCard = document.getElementById("card-champion");
-  champCard.style.setProperty("--bg-img", `url("${champion.img}")`);
-  champCard.querySelector(".card__title").textContent = champion.title;
+  champCard.style.setProperty("--bg-img", bgUrl(champion.img));
+  champCard.querySelector(".duel-card__title").textContent = TEXTS.quote(champion.title);
 
   const challCard = document.getElementById("card-challenger");
-  challCard.style.setProperty("--bg-img", `url("${challenger.img}")`);
-  challCard.querySelector(".card__title").textContent = challenger.title;
+  challCard.style.setProperty("--bg-img", bgUrl(challenger.img));
+  challCard.querySelector(".duel-card__title").textContent = TEXTS.quote(challenger.title);
 }
 
 function renderFinal() {
   document.getElementById("final-title").textContent = TEXTS.finalTitle;
 
   const winnerCard = document.getElementById("card-winner");
-  winnerCard.style.setProperty("--bg-img", `url("${champion.img}")`);
-  winnerCard.querySelector(".card__title").textContent = champion.title;
+  winnerCard.style.setProperty("--bg-img", bgUrl(champion.img));
+  winnerCard.querySelector(".duel-card__title").textContent = TEXTS.quote(champion.title);
 
   document.getElementById("idea-label").textContent = TEXTS.ideaLabel;
   const ideaInput = document.getElementById("idea-input");
