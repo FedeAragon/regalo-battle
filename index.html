@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Para Maite 💛</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- Pantalla 1: Intro -->
+  <section class="screen screen--active" data-screen="intro">
+    <div class="screen__content">
+      <h1 id="intro-title"></h1>
+      <p id="intro-body"></p>
+      <button id="start-button" class="button button--primary"></button>
+    </div>
+  </section>
+
+  <!-- Pantalla 2: Duelo -->
+  <section class="screen" data-screen="duel">
+    <div class="screen__content screen__content--duel">
+      <p id="round-label" class="round-label"></p>
+      <p id="duel-prompt" class="duel-prompt"></p>
+
+      <div class="cards">
+        <button id="card-champion" class="card">
+          <span class="card__title"></span>
+        </button>
+        <span class="vs">VS</span>
+        <button id="card-challenger" class="card">
+          <span class="card__title"></span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pantalla 3: Final -->
+  <section class="screen" data-screen="final">
+    <div class="screen__content">
+      <h1 id="final-title"></h1>
+      <p id="final-body"></p>
+
+      <div id="card-winner" class="card card--winner">
+        <span class="card__title"></span>
+      </div>
+
+      <div id="idea-field" class="idea-field">
+        <label id="idea-label" for="idea-input"></label>
+        <textarea id="idea-input" rows="3"></textarea>
+      </div>
+
+      <button id="done-button" class="button button--primary"></button>
+      <p id="send-error" class="send-error" hidden></p>
+      <button id="copy-button" class="button button--secondary" hidden></button>
+    </div>
+  </section>
+
+  <script src="js/gifts.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/email.js"></script>
+</body>
+</html>
