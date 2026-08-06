@@ -105,11 +105,11 @@ function renderDuel() {
   );
 
   const champCard = document.getElementById("card-champion");
-  champCard.style.backgroundImage = `url("${champion.img}")`;
+  champCard.style.setProperty("--bg-img", `url("${champion.img}")`);
   champCard.querySelector(".card__title").textContent = champion.title;
 
   const challCard = document.getElementById("card-challenger");
-  challCard.style.backgroundImage = `url("${challenger.img}")`;
+  challCard.style.setProperty("--bg-img", `url("${challenger.img}")`);
   challCard.querySelector(".card__title").textContent = challenger.title;
 }
 
@@ -117,7 +117,7 @@ function renderFinal() {
   document.getElementById("final-title").textContent = TEXTS.finalTitle;
 
   const winnerCard = document.getElementById("card-winner");
-  winnerCard.style.backgroundImage = `url("${champion.img}")`;
+  winnerCard.style.setProperty("--bg-img", `url("${champion.img}")`);
   winnerCard.querySelector(".card__title").textContent = champion.title;
 
   document.getElementById("idea-label").textContent = TEXTS.ideaLabel;

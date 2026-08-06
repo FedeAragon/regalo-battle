@@ -120,29 +120,26 @@ p {
   height: 42vh;
   min-height: 220px;
   background-color: var(--card-bg);
-  background-size: cover;
-  background-position: center;
   cursor: pointer;
   padding: 0;
-  filter: blur(0); /* la imagen de fondo se difumina, no la carta entera */
 }
 
 .card::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: inherit;
+  background-image: var(--bg-img);
   background-size: cover;
   background-position: center;
-  filter: blur(18px);
-  transform: scale(1.2);
+  filter: blur(30px) saturate(85%);
+  transform: scale(1.25);
 }
 
 .card::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.1));
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.35));
 }
 
 .card__title {
